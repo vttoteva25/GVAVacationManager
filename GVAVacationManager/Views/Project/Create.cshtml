@@ -1,0 +1,26 @@
+﻿@model GVAVacationManager.Models.Project;
+
+<body class="dark-body">
+    <div class="container">
+        <div class="row justify-content-center lower">
+            <div class="col-md-6 register-form-bg rounded">
+                <form asp-action="Create" asp-controller="Project" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group text-center">
+                        <h2 class="normal-heading">Създай проект</h2>
+                        <br />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label normal-text">Име на проекта</label>
+                        <input asp-for="ProjectName" class="form-control normal-text" placeholder="Въведете име на проекта..." />
+                        <span asp-validation-for="ProjectName" class="text-danger"></span>
+                    </div>                   
+                    <div class="form-group align-items-center text-center">
+                        <input type="submit" id="create" value="Създай" class="btn btn-lg dark-button" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

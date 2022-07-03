@@ -1,0 +1,61 @@
+@model GVAVacationManager.ViewModels.CEOeditUserViewModel
+
+    <head>
+        <link href="~/css/custom-style.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/login-sigup.css" rel="stylesheet" type="text/css" />
+    </head>
+
+        <body class="dark-body">
+            <div class="container">
+                <div class="row justify-content-center lower">
+                    <div class="col-md-6 register-form-bg rounded">
+                        <form asp-action="Edit" asp-controller="CEO" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <label class="control-label normal-text">Потрбителско име</label>
+                                <input readonly asp-for="Username" class="form-control normal-text" />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label normal-text">Име</label>
+                                <input readonly asp-for="FirstName" class="form-control normal-text" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label normal-text">Фамилия</label>
+                                <input readonly asp-for="LastName" class="form-control normal-text" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Роля във фирмата</label>
+                                <select asp-for="RoleId" class="browser-default custom-select">
+                                    <option selected=""></option>
+                                    @foreach (Role role in Model.Roles)
+                                    {
+                                        <option value="@role.Id">@role.RoleName</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="RoleId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Екип</label>
+                                <select asp-for="TeamId" class="browser-default custom-select">
+                                    <option selected=""></option>
+                                    @foreach (Team team in Model.Teams)
+                                    {
+                                        <option value="@team.Id">@team.TeamName</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="TeamId" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group align-items-center text-center">
+                                <input type="submit" id="redaction" value="Редактирай" class="btn btn-lg dark-button" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </body>

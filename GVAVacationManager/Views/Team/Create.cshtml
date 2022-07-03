@@ -1,0 +1,49 @@
+﻿@model GVAVacationManager.ViewModels.TeamVM.TeamInputModel;
+
+<body class="dark-body">
+    <div class="container">
+        <div class="row justify-content-center lower">
+            <div class="col-md-6 register-form-bg rounded">
+                <form asp-action="Create" asp-controller="Team" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group text-center">
+                        <h2 class="normal-heading">Създай екип</h2>
+                        <br />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label normal-text">Име на екипа</label>
+                        <input asp-for="TeamName" class="form-control normal-text" placeholder="Въведете име на екипа..." />
+                        <span asp-validation-for="TeamName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label normal-text">Проект на екипа</label>
+                        <select asp-for="ProjectId" class="browser-default custom-select">
+                            <option selected="">Възложете проект на екипа</option>
+                            @foreach (var project in Model.Projects)
+                            {
+                                <option value="@project.Id">@project.ProjectName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ProjectId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label normal-text">Лидер на екипа</label>
+                        <select asp-for="UserId" class="browser-default custom-select">
+                            <option selected="">Изберете лидер на екипа</option>
+                            @foreach (var user in Model.Users)
+                            {
+                                <option value="@user.Id">@user.FirstName @user.LastName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="UserId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group align-items-center text-center">
+                        <input type="submit" id="create" value="Създай" class="btn btn-lg dark-button" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

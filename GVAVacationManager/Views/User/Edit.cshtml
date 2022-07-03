@@ -1,0 +1,59 @@
+﻿@model GVAVacationManager.ViewModels.UserVM.EditUserViewModel
+@{ ViewData["Title"] = "Edit | GVA "; }
+
+<head>
+    <link href="~/css/custom-style.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/login-sigup.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="dark-body">
+    <div class="container">
+        <div class="row justify-content-center lower">
+            <div class="col-md-6 register-form-bg rounded">
+                <form asp-action="Edit" asp-controller="User" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group text-center">
+                        <h2 class="normal-heading">Редактиране на профил</h2>
+                        <br />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                    <div class="form-group text-center">
+                        <h2 class="normal-heading">Актуализация на парола</h2>
+                        <br />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label normal-text">Потребителско име</label>
+                        <input readonly asp-for="Username" class="form-control normal-text" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label normal-text">Име</label>
+                        <input readonly asp-for="FirstName" class="form-control normal-text" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label normal-text">Фамилия</label>
+                        <input readonly asp-for="LastName" class="form-control normal-text" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label normal-text">Парола</label>
+                        <input type="password" asp-for="Password" class="form-control normal-text" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Повтори парола</label>
+                        <input type="password" asp-for="ConfirmPassword" class="form-control normal-text" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group align-items-center text-center">
+                        <input type="submit" id="redaction" value="Редактирай" class="btn btn-lg dark-button" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
